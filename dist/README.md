@@ -1,6 +1,6 @@
 # Covid Fetch
 
-![npm](https://img.shields.io/npm/v/covid-fetch)
+![npm (scoped)](https://img.shields.io/npm/v/@yy3301/covid-fetch)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/covid-fetch?color=green)
 
 A simple package (i.e. a _fetcher_) for India's COVID-19 data fetched from the Government sources online.
