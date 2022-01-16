@@ -1,6 +1,6 @@
 {
   "name": "@yy3301/covid-fetch",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Covid19 data (India and States) fetched from the government website, effectively in JSON format",
   "main": "index.js",
   "scripts": {
