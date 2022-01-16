@@ -1,14 +1,9 @@
 {
-  "name": "@yy/covid-fetch",
+  "name": "covid-fetch",
   "version": "1.0.0",
   "description": "Covid data fetched from the government website, to make it available in useful file formats",
   "main": "index.js",
-  "scripts": {
-    "compile": "tsc",
-    "clean": "rm -rf dist",
-    "prebuildpackage": "npm run clean && npm run compile && node dist/SetupPackage.js",
-    "buildpackage": "cd dist && npm pack"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Maharshi-Pandya/covid-fetch.git"
@@ -25,12 +20,7 @@
     "url": "https://github.com/Maharshi-Pandya/covid-fetch/issues"
   },
   "homepage": "https://github.com/Maharshi-Pandya/covid-fetch#readme",
-  "devDependencies": {
-    "@types/node": "^17.0.8",
-    "nodemon": "^2.0.15",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.5.4"
-  },
+  "devDependencies": {},
   "dependencies": {
     "axios": "^0.24.0",
     "cheerio": "^1.0.0-rc.10"

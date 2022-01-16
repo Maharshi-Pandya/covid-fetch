@@ -1,24 +1,19 @@
-import axios from "axios";
-
-// state data structure
-interface IStateUTData {
-    sno:number,
-    state_name:string,
-    abbr:string,
-    active:number,
-    positive:number,
-    cured:number,
-    death:number,
-    new_active:number,
-    new_positive:number,
-    new_cured:number,
-    new_death:number,
-    state_code:string,
-
-    Timestamp:string,
-    UnixTimestamp:number,
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
-
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const axios_1 = __importDefault(require("axios"));
+;
 /*
     Get the cases of all states and UTs
 */
@@ -60,67 +55,60 @@ const abbrLookup = {
     "UP": "Uttar Pradesh",
     "UT": "Uttarakhand",
     "WB": "West Bengal",
-}
-
+};
 // found the file at /data/datanew.json
-const getCasesStateUTs = async (URL:string) => {
-    const axinst = axios.create();
-    let coviddataStateUT:IStateUTData[] = [];
-
+const getCasesStateUTs = (URL) => __awaiter(void 0, void 0, void 0, function* () {
+    const axinst = axios_1.default.create();
+    let coviddataStateUT = [];
     // fetch
     try {
-        let newURL:string = URL + "data/datanew.json";
-        let response = await axinst.get(newURL)
-        let dataNewStateUTs = await response.data;
-        
+        let newURL = URL + "data/datanew.json";
+        let response = yield axinst.get(newURL);
+        let dataNewStateUTs = yield response.data;
         // set the correct abbreviation from the lookup table
-        for(let dataObj of dataNewStateUTs) {
-            let abbr:string = "";
-
-            if(dataObj["state_name"] === "") {
+        for (let dataObj of dataNewStateUTs) {
+            let abbr = "";
+            if (dataObj["state_name"] === "") {
                 abbr = "All over India";
                 dataObj["sno"] = "0";
             }
-
-            for(let key in abbrLookup) {
+            for (let key in abbrLookup) {
                 // when the value is an array of possible state names
-                if(typeof abbrLookup[key] !== "string") {
-                    for(let sname of abbrLookup[key]) {
-                        if(sname === dataObj["state_name"]) {
+                if (typeof abbrLookup[key] !== "string") {
+                    for (let sname of abbrLookup[key]) {
+                        if (sname === dataObj["state_name"]) {
                             abbr += key;
                         }
                     }
                 }
                 else {
-                    let sname:string = dataObj["state_name"];
+                    let sname = dataObj["state_name"];
                     // for Kerala***
-                    if(sname[sname.length - 1] === '*') {
+                    if (sname[sname.length - 1] === '*') {
                         sname = sname.slice(0, -3);
                         dataObj["state_name"] = sname;
                     }
-
                     // set the abbr to key
-                    if(sname === abbrLookup[key]) {
+                    if (sname === abbrLookup[key]) {
                         abbr += key;
                     }
                 }
             }
             dataObj["abbr"] = abbr;
-            
             // get timestamp
             let nowDate = new Date();
             dataObj["Timestamp"] = nowDate.toString();
             dataObj["UnixTimestamp"] = Math.floor(nowDate.getTime() / 1000);
         }
-
-        coviddataStateUT.push(dataNewStateUTs, );
+        coviddataStateUT.push(dataNewStateUTs);
         return coviddataStateUT;
-    } catch (err) {
+    }
+    catch (err) {
         console.log("Oops! Some error occurred...");
         console.error(err.message);
     }
-}
-
-export default {
+});
+exports.default = {
     getCasesStateUTs
-}
+};
+//# sourceMappingURL=stateUTs.js.map

@@ -5,8 +5,6 @@
 
 import cases from "./cases";
 
-cases.getCasesDataIndia()
-.then(data => console.log(data))
-
-cases.getCasesDataState()
-.then(data => console.log(data))
+export default {
+    cases
+}
