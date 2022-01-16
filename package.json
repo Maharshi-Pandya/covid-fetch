@@ -1,7 +1,7 @@
 {
-  "name": "@yy/covid-fetch",
+  "name": "@yy3301/covid-fetch",
   "version": "1.0.0",
-  "description": "Covid data fetched from the government website, to make it available in useful file formats",
+  "description": "Covid19 data (India and States) fetched from the government website, effectively in JSON format",
   "main": "index.js",
   "scripts": {
     "compile": "tsc",
@@ -14,10 +14,16 @@
     "url": "git+https://github.com/Maharshi-Pandya/covid-fetch.git"
   },
   "keywords": [
-    "Covid",
-    "Webscraping",
-    "git",
-    "github"
+    "covid19",
+    "india",
+    "api",
+    "data fetcher",
+    "coronavirus tracker",
+    "covid19 data",
+    "webscraping",
+    "covid19 tracking",
+    "covid19 tracker",
+    "covid19 india"
   ],
   "author": "Maharshi Pandya",
   "license": "MIT",
