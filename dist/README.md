@@ -16,7 +16,7 @@ Use this instead of scraping the Government websites from scratch. Collect the d
 Install the package:
 
 ```shell
-$ npm i covid-fetch
+$ npm i @yy3301/covid-fetch
 ```
 
 To use this:
