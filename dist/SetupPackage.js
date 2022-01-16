@@ -20,6 +20,8 @@ function main() {
     fs_1.default.writeFileSync(__dirname + "/package.json", Buffer.from(JSON.stringify(sourceObj, null, 2), "utf-8"));
     fs_1.default.writeFileSync(__dirname + "/version.txt", Buffer.from(sourceObj.version, "utf-8"));
     fs_1.default.copyFileSync(__dirname + "/../.npmignore", __dirname + "/.npmignore");
+    fs_1.default.copyFileSync(__dirname + "/../README.md", __dirname + "/README.md");
+    fs_1.default.copyFileSync(__dirname + "/../LICENSE", __dirname + "/LICENSE");
 }
 main();
 //# sourceMappingURL=SetupPackage.js.map
