@@ -4,6 +4,10 @@
 */
 
 import cases from "./cases";
+import vaccination from "./vaccination";
+
+console.log(vaccination.stateUTs.constructURL());
+vaccination.stateUTs.getVaccineData();
 
 export default {
     cases

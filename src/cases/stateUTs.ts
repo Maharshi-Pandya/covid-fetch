@@ -1,4 +1,5 @@
 import axios from "axios";
+import abbrLookup from "../utils/abbrLookup";
 
 // state data structure
 interface IStateUTData {
@@ -22,45 +23,6 @@ interface IStateUTData {
 /*
     Get the cases of all states and UTs
 */
-const abbrLookup = {
-    "AN": ["Andaman and Nicobar Islands", "A & N Islands"],
-    "AP": "Andhra Pradesh",
-    "AR": "Arunachal Pradesh",
-    "AS": "Assam",
-    "BR": "Bihar",
-    "CH": "Chandigarh",
-    "CT": "Chhattisgarh",
-    "DN": ["Dadra and Nagar Haveli", "Dadra & Nagar Haveli"],
-    "DD": ["Daman and Diu", "Daman & Diu"],
-    "DL": "Delhi",
-    "GA": "Goa",
-    "GJ": "Gujarat",
-    "HR": "Haryana",
-    "HP": "Himachal Pradesh",
-    "JK": ["Jammu and Kashmir", "Jammu & Kashmir"],
-    "JH": "Jharkhand",
-    "KA": "Karnataka",
-    "KL": "Kerala",
-    "LD": "Lakshadweep",
-    "LA": "Ladakh",
-    "MP": "Madhya Pradesh",
-    "MH": "Maharashtra",
-    "MN": "Manipur",
-    "ML": "Meghalaya",
-    "MZ": "Mizoram",
-    "NL": "Nagaland",
-    "OR": "Odisha",
-    "PY": "Puducherry",
-    "PB": "Punjab",
-    "RJ": "Rajasthan",
-    "SK": "Sikkim",
-    "TN": "Tamil Nadu",
-    "TG": "Telangana",
-    "TR": "Tripura",
-    "UP": "Uttar Pradesh",
-    "UT": "Uttarakhand",
-    "WB": "West Bengal",
-}
 
 // found the file at /data/datanew.json
 const getCasesStateUTs = async (URL:string) => {

@@ -7,7 +7,8 @@
     "compile": "tsc",
     "clean": "rm -rf dist",
     "prebuildpackage": "npm run clean && npm run compile && node dist/SetupPackage.js",
-    "buildpackage": "cd dist && npm pack"
+    "buildpackage": "cd dist && npm pack",
+    "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
-    "cheerio": "^1.0.0-rc.10"
+    "cheerio": "^1.0.0-rc.10",
+    "pdf2json": "^2.0.0"
   }
 }
